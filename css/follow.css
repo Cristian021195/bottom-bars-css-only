@@ -1,0 +1,139 @@
+:root{
+    --bottom-button: 2rem;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;}
+#main{
+    display: flex;
+	flex-direction: column;
+	min-height: calc(100vh - 6rem);/* 100vh;*/
+}
+
+footer{
+    background-color: dodgerblue;
+    position: sticky;
+    width: 100%;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin-top: 2rem;
+    padding: 1rem;
+}
+footer > div{
+    position: relative;
+    width: 15rem;
+    display: flex;
+    height: 2rem;
+    justify-content: center;
+    gap: 1rem;
+}
+
+footer button {
+    all: unset;
+    color: whitesmoke;
+    text-decoration: none;
+    position: relative;
+    animation: down 0.25s forwards ease-in-out;
+}
+footer button svg{
+    width: 2rem;
+    height: 2rem;
+}
+footer .line{
+    width: 2rem;
+    border-radius: 50%;
+    height: 2rem;
+    position: absolute;
+    bottom: 0;
+    background-color: black;
+    animation: down2 0.25s both ease-in-out;
+    transition: 0.5s;
+}
+
+footer button:focus{
+    animation: up 0.25s alternate forwards ease-in-out;
+}
+footer button:focus > *{
+    animation: up2 0.25s alternate forwards ease-in-out;
+}
+
+footer button:nth-child(1):focus ~ .line{
+    transform: translate(calc(6*-1rem));
+    opacity: 0;
+}
+footer button:nth-child(2):focus ~ .line{
+    transform: translate(calc(3*-1rem));
+    opacity: 0;
+}
+footer button:nth-child(3):focus ~ .line{
+    transform: translate(0rem);
+    opacity: 0;
+}
+footer button:nth-child(4):focus ~ .line{
+    transform: translate(calc(3*1rem));
+    opacity: 0;
+}
+footer button:nth-child(5):focus ~ .line{
+    transform: translate(calc(6*1rem));
+    opacity: 0;
+}
+
+@keyframes up {
+    from {
+        bottom: 0rem;
+    }
+    to{
+        bottom: 2rem;
+        width: calc(var(--bottom-button) + 1rem);
+        height: calc(var(--bottom-button) + 1rem);
+        background-color:dodgerblue;
+        color: whitesmoke;
+        border-radius: 50%;
+        box-shadow: 0px 0px 0px 0.25rem dodgerblue inset;
+    }
+}
+
+@keyframes up2 {
+    from {
+        bottom: 0rem;
+    }
+    to{
+        width: calc(var(--bottom-button) + 1rem);
+        height: calc(var(--bottom-button) + 1rem);
+        padding: 0.4rem;
+        transform: scale(0.85);
+    }
+}
+
+@keyframes down2 {
+
+    0%   {
+        bottom: 1rem;
+        background-color: whitesmoke;
+        opacity: 0.7;
+    }
+    50%  {
+        background-color: whitesmoke;
+        opacity: 0.7;
+    }
+    100% {
+        bottom: 0rem;
+        opacity: 0.1;
+        background-color: whitesmoke;
+        z-index: -1;
+    }
+}
+@keyframes down {
+    from {
+        bottom: 1rem;
+    }
+    to{
+        bottom: 0rem;
+    }
+}

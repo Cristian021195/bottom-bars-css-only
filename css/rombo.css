@@ -1,0 +1,144 @@
+:root{
+    --bottom-button: 2rem;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;}
+#main{
+    display: flex;
+	flex-direction: column;
+	min-height: calc(100vh - 5rem);/* 100vh;*/
+}
+
+footer{
+    background-color: whitesmoke;
+    position: sticky;
+    width: 100%;
+    bottom: 0;
+    margin-top: 2rem;    
+}
+
+footer div{
+    display: flex;
+    justify-content: space-evenly;
+    position: absolute;
+    width: 100%;
+    background-color: dodgerblue;
+    color: whitesmoke;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+
+/* reset */
+button{
+    all: unset;
+    position: relative;
+    animation: down 0.25s forwards ease-in-out;
+    /*background-color: yellow;*/
+    border-radius: 0.75rem;
+    width: var(--bottom-button);
+    height: var(--bottom-button);
+    /*padding: 0.25rem;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: rotate(45deg);
+}
+button > * {
+    width: 1.5rem;
+    height: 1.5rem;
+    /*width: var(--bottom-button);
+    height: var(--bottom-button);*/
+    transform: rotate(-45deg);
+}
+button:focus{
+    animation: up 0.25s alternate forwards ease-in-out;
+    /*border: 0.25rem solid dodgerblue;*/
+}
+button:focus > *{
+    /*width: calc(var(--bottom-button) + 1rem); height: calc(var(--bottom-button) + 1rem);*/
+    animation: up2 0.25s alternate forwards ease-in-out;
+    /*padding: 0.25rem;*/
+    border-radius: 25%;
+    transform: scale(0.8) rotate(-45deg);
+}
+
+@keyframes up {
+    from {
+        bottom: 0rem;
+    }
+    to{
+        bottom: 1.6rem;
+        width: calc(var(--bottom-button));
+        height: calc(var(--bottom-button));
+        margin: -0.25rem;
+        background-color: dodgerblue;
+        color: whitesmoke;
+        border: 0.25rem solid white;
+    }
+}
+@keyframes down {
+    from {
+        bottom: 1rem;
+    }
+    to{
+        bottom: 0rem;
+    }
+}
+
+@keyframes up2 {
+    from {
+    }
+    to{
+        width: calc(var(--bottom-button));
+        height: calc(var(--bottom-button));
+        margin: -0.25rem;
+        background-color: dodgerblue;
+        color: whitesmoke;
+    }
+}
+@keyframes down {
+    from {
+        bottom: 1rem;
+    }
+    to{
+        bottom: 0rem;
+    }
+}
+
+
+/* helper */
+
+.o-red{
+    box-shadow: 0px 0px 0px 1px rgba(255,0,0,1) inset;
+}
+.o-blue{
+    box-shadow: 0px 0px 0px 1px rgb(0, 153, 255) inset;
+}
+.o-green{
+    box-shadow: 0px 0px 0px 1px rgb(72, 255, 0) inset;
+}
+
+
+a:focus {
+    color: orange;
+}
+a:link {
+    color: red;
+}
+/* visited link */
+a:visited {
+    color: green;
+}
+/* mouse over link */
+a:hover {
+    color: hotpink;
+}
+/* selected link */
+a:active {
+    color: blue;
+}
